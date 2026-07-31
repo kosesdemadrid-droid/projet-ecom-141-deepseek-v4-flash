@@ -21,19 +21,19 @@ export function ShopCard({ shop }) {
     }
   };
   return (
-    <div className="group overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-2xl dark:border-gray-800 dark:bg-gray-900">
+    <div className="card-premium group overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900">
       <div className="relative h-40 overflow-hidden">
         <Img src={shop.logo || shop.hero} alt={shop.name} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-bold text-gray-700">{shop.themeName}</span>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+        <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-black text-gray-700 backdrop-blur">{shop.themeName}</span>
         {shop.unread > 0 && (
-          <span className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-red-500 px-2.5 py-1 text-[10px] font-bold text-white">
+          <span className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-red-500 px-2.5 py-1 text-[10px] font-bold text-white shadow">
             ✉️ {shop.unread} message{shop.unread > 1 ? 's' : ''}
           </span>
         )}
-        <div className="absolute bottom-3 left-3">
-          <h3 className="text-lg font-black text-white drop-shadow">{shop.name}</h3>
-          <a href={`/s/${shop.slug}`} target="_blank" rel="noreferrer" className="text-xs font-semibold text-white/80 hover:underline">
+        <div className="absolute bottom-3 left-4">
+          <h3 className="font-display text-lg font-semibold text-white drop-shadow">{shop.name}</h3>
+          <a href={`/s/${shop.slug}`} target="_blank" rel="noreferrer" className="text-xs font-semibold text-white/75 transition hover:text-white">
             la boutique.ci/{shop.slug} ↗
           </a>
         </div>
@@ -45,13 +45,13 @@ export function ShopCard({ shop }) {
           [formatFCFA(shop.revenue), 'CA'],
         ].map(([v, l]) => (
           <div key={l} className="px-4 py-3 text-center">
-            <div className="text-sm font-black">{v}</div>
-            <div className="text-[10px] font-semibold uppercase tracking-wide text-gray-400">{l}</div>
+            <div className="truncate text-sm font-black">{v}</div>
+            <div className="text-[10px] font-bold uppercase tracking-wide text-gray-400">{l}</div>
           </div>
         ))}
       </div>
       <div className="flex items-center gap-2 p-3">
-        <Link href={`/dashboard/shops/${shop.id}`} className="flex-1 rounded-xl bg-gray-900 px-4 py-2.5 text-center text-xs font-bold text-white transition hover:bg-gray-800">
+        <Link href={`/dashboard/shops/${shop.id}`} className="btn-premium flex-1 rounded-xl bg-gray-900 px-4 py-2.5 text-center text-xs font-black text-white transition hover:bg-gray-800">
           Gérer
         </Link>
         <a href={`/s/${shop.slug}`} target="_blank" rel="noreferrer" title="Voir la boutique" className="rounded-xl border border-gray-200 px-3.5 py-2.5 text-xs font-bold text-gray-600 transition hover:border-gray-400 dark:border-gray-700 dark:text-gray-300">

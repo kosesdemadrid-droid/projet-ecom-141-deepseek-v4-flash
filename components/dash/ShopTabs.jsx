@@ -14,7 +14,7 @@ const TABS = (id) => [
 export default function ShopTabs({ shopId }) {
   const pathname = usePathname();
   return (
-    <div className="mb-6 flex gap-1.5 overflow-x-auto rounded-2xl border border-gray-100 bg-white p-1.5 dark:border-gray-800 dark:bg-gray-900">
+    <div className="mb-6 flex gap-1.5 overflow-x-auto rounded-2xl border border-gray-200/70 bg-white p-1.5 shadow-sm dark:border-gray-800 dark:bg-gray-900 scrollbar-hide">
       {TABS(shopId).map((t) => {
         const active = t.exact ? pathname === t.href : pathname.startsWith(t.href);
         return (
@@ -22,7 +22,9 @@ export default function ShopTabs({ shopId }) {
             key={t.href}
             href={t.href}
             className={`flex shrink-0 items-center gap-1.5 rounded-xl px-4 py-2.5 text-sm font-bold transition ${
-              active ? 'bg-gray-900 text-white shadow dark:bg-white dark:text-gray-900' : 'text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800'
+              active
+                ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-brand'
+                : 'text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800'
             }`}
           >
             <span>{t.icon}</span>

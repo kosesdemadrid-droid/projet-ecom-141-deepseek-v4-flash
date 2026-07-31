@@ -68,7 +68,7 @@ export default function SettingsManager({ shop, theme }) {
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-2xl font-black tracking-tight">{shop.name}</h1>
+        <h1 className="font-display text-3xl font-semibold tracking-tight">{shop.name}</h1>
         <p className="text-sm text-gray-500">Personnalisez votre boutique et vos moyens de paiement.</p>
       </div>
       <ShopTabs shopId={shop.id} />

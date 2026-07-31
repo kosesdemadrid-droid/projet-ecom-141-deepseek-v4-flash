@@ -61,7 +61,7 @@ export default function OrdersManager({ shop }) {
     <div>
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-black tracking-tight">{shop.name}</h1>
+          <h1 className="font-display text-3xl font-semibold tracking-tight">{shop.name}</h1>
           <p className="text-sm text-gray-500">{orders.length} commandes · {formatFCFACompact(revenue)} de CA · {pending} en attente</p>
         </div>
         <button onClick={exportCsv} disabled={orders.length === 0} className="rounded-xl bg-gray-900 px-5 py-2.5 text-sm font-bold text-white shadow-lg transition hover:bg-gray-800 disabled:opacity-50">

@@ -33,8 +33,8 @@ export default async function ShopOverview({ params }) {
             {shop.name.slice(0, 1).toUpperCase()}
           </span>
           <div>
-            <h1 className="text-2xl font-black tracking-tight">{shop.name}</h1>
-            <a href={`/s/${shop.slug}`} target="_blank" rel="noreferrer" className="text-sm font-semibold text-orange-600 hover:underline">
+            <h1 className="font-display text-3xl font-semibold tracking-tight">{shop.name}</h1>
+            <a href={`/s/${shop.slug}`} target="_blank" rel="noreferrer" className="text-sm font-semibold text-orange-500 hover:underline">
               la boutique.ci/{shop.slug} ↗
             </a>
           </div>
@@ -55,7 +55,7 @@ export default async function ShopOverview({ params }) {
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         {cards.map((c) => (
-          <Link key={c.label} href={`/dashboard/shops/${shop.id}/${c.to}`} className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition hover:shadow-lg dark:border-gray-800 dark:bg-gray-900">
+          <Link key={c.label} href={`/dashboard/shops/${shop.id}/${c.to}`} className="card-premium rounded-2xl border border-gray-100 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
             <div className="text-xl">{c.icon}</div>
             <div className="mt-2 text-xl font-black">{c.value}</div>
             <div className="text-xs font-semibold text-gray-400">{c.label}</div>

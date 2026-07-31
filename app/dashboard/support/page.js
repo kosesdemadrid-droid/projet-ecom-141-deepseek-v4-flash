@@ -38,7 +38,7 @@ export default function SupportPage() {
 
   return (
     <div className="max-w-4xl">
-      <h1 className="text-2xl font-black tracking-tight">Support</h1>
+      <h1 className="font-display text-3xl font-semibold tracking-tight">Support</h1>
       <p className="mt-1 text-sm text-gray-500">Une question ? Consultez la FAQ ou écrivez-nous, nous répondons sous 24h.</p>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-2">

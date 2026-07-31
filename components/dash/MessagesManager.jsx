@@ -33,7 +33,7 @@ export default function MessagesManager({ shop }) {
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-2xl font-black tracking-tight">{shop.name}</h1>
+        <h1 className="font-display text-3xl font-semibold tracking-tight">{shop.name}</h1>
         <p className="text-sm text-gray-500">Messages reçus via le formulaire de contact de votre boutique.</p>
       </div>
       <ShopTabs shopId={shop.id} />

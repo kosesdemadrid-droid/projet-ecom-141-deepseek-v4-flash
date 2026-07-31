@@ -42,7 +42,7 @@ export default function ProductsManager({ shop }) {
     <div>
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-black tracking-tight">{shop.name}</h1>
+          <h1 className="font-display text-3xl font-semibold tracking-tight">{shop.name}</h1>
           <p className="text-sm text-gray-500">Gérez vos produits, stocks et variantes.</p>
         </div>
         <div className="flex gap-3">

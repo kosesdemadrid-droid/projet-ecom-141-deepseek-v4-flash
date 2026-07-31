@@ -56,7 +56,7 @@ export default function AccountClient({ user }) {
 
   return (
     <div className="max-w-2xl">
-      <h1 className="text-2xl font-black tracking-tight">Compte & paramètres</h1>
+      <h1 className="font-display text-3xl font-semibold tracking-tight">Compte & paramètres</h1>
       <p className="mt-1 text-sm text-gray-500">Gérez vos informations personnelles et vos préférences.</p>
 
       <form onSubmit={save} className="mt-8 space-y-6">

@@ -24,7 +24,7 @@ export default async function TemplatesPage() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-2xl font-black tracking-tight">Boutiques prêtes à l'emploi</h1>
+        <h1 className="font-display text-3xl font-semibold tracking-tight">Boutiques prêtes à l'emploi</h1>
         <p className="mt-1 max-w-2xl text-sm text-gray-500">
           10 boutiques entièrement configurées (produits, images, bannières, pages). Cliquez sur « Utiliser » : la boutique est dupliquée dans votre espace, puis personnalisez-la à votre guise.
         </p>

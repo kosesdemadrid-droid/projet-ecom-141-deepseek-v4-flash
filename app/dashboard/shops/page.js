@@ -28,7 +28,7 @@ export default async function ShopsPage() {
     <div>
       <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-black tracking-tight">Mes boutiques</h1>
+          <h1 className="font-display text-3xl font-semibold tracking-tight">Mes boutiques</h1>
           <p className="mt-1 text-sm text-gray-500">{shops.length} boutique(s) — gérez-les depuis cet espace.</p>
         </div>
         <div className="flex gap-3">

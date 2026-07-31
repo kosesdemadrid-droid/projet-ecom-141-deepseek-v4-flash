@@ -93,7 +93,7 @@ export default function ShopWizard() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-2xl font-black tracking-tight">Créer une nouvelle boutique</h1>
+        <h1 className="font-display text-3xl font-semibold tracking-tight">Créer une nouvelle boutique</h1>
         <div className="mt-5 flex items-center gap-2">
           {STEPS.map((s, i) => {
             const n = i + 1;

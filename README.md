@@ -57,6 +57,29 @@ npm run build && npm start
 
 > 💡 Si le port 3000 est occupé : `npm run dev -- -p 3100`
 
+## ☁️ Déploiement (Vercel / Netlify)
+
+Les plateformes serverless ont un **système de fichiers en lecture seule** : la base
+`data/db.json` ne peut pas y être écrite. `lib/store.js` détecte automatiquement le
+stockage disponible, dans cet ordre :
+
+1. **Gist GitHub privé** (si `DB_GIST_ID` + `DB_GIST_TOKEN` sont définis) — recommandé, fonctionne partout ;
+2. **Netlify Blobs** (si le disque n'est pas inscriptible et que le contexte blobs est disponible) ;
+3. **Fichier local** (développement) ;
+4. **Mémoire** (repli de dernier recours — données éphémères).
+
+### Déploiement Vercel
+
+```bash
+npm i -g vercel
+vercel login
+vercel --prod --name laboutique-ci --yes        # 1er déploiement
+# Persistance : créez un gist privé avec un fichier db.json (seed) puis :
+vercel env add DB_GIST_ID production            # id du gist
+vercel env add DB_GIST_TOKEN production         # token GitHub (classic, scope gist)
+vercel --prod                                    # redéployer avec les variables
+```
+
 ### Comptes de démonstration
 
 | Rôle | Email | Mot de passe |

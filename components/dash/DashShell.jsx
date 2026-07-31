@@ -45,11 +45,11 @@ export default function DashShell({ user, shops, children }) {
     <ToastProvider>
       <div className="min-h-screen bg-gray-50 text-gray-900 transition-colors dark:bg-gray-950 dark:text-gray-100">
         {/* Barre latérale */}
-        <aside className={`fixed inset-y-0 left-0 z-40 flex w-64 flex-col border-r border-gray-200 bg-white transition-all dark:border-gray-800 dark:bg-gray-900 lg:translate-x-0 ${open ? 'translate-x-0' : '-translate-x-full'}`}>
-          <div className="flex h-16 items-center gap-2.5 border-b border-gray-100 px-5 dark:border-gray-800">
+        <aside className={`panel-dark fixed inset-y-0 left-0 z-40 flex w-64 flex-col border-r border-black/40 transition-all dark:border-gray-800 lg:translate-x-0 ${open ? 'translate-x-0' : '-translate-x-full'}`}>
+          <div className="flex h-16 items-center gap-2.5 border-b border-white/10 px-5">
             <Link href="/" className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-orange-700 text-white">🛍️</span>
-              <span className="text-base font-extrabold tracking-tight">LaBoutique<span className="text-orange-600">.ci</span></span>
+              <span className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 text-white shadow-glow-orange">🛍️</span>
+              <span className="text-base font-extrabold tracking-tight text-white">LaBoutique<span className="grad-text">.ci</span></span>
             </Link>
           </div>
           <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-4">
@@ -64,32 +64,32 @@ export default function DashShell({ user, shops, children }) {
                   href={n.href}
                   onClick={() => setOpen(false)}
                   className={`flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-semibold transition ${
-                    is ? 'bg-orange-50 text-orange-700 dark:bg-orange-500/10 dark:text-orange-400' : 'text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800'
+                    is ? 'bg-gradient-to-r from-orange-500/20 to-transparent text-amber-300' : 'text-gray-400 hover:bg-white/5 hover:text-white'
                   }`}
                 >
-                  <span className="text-base">{n.icon}</span>
+                  <span className={`text-base ${is ? '' : 'opacity-80'}`}>{n.icon}</span>
                   <span className="flex-1">{n.label}</span>
-                  {is && <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />}
+                  {is && <span className="h-1.5 w-1.5 rounded-full bg-amber-400 shadow-glow-orange" />}
                 </Link>
               );
             })}
             {user.role === 'admin' && (
-              <Link href="/admin" className={`flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-semibold transition ${pathname.startsWith('/admin') ? 'bg-violet-50 text-violet-700 dark:bg-violet-500/10 dark:text-violet-400' : 'text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800'}`}>
+              <Link href="/admin" className={`flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-semibold transition ${pathname.startsWith('/admin') ? 'bg-gradient-to-r from-violet-500/20 to-transparent text-violet-300' : 'text-gray-400 hover:bg-white/5 hover:text-white'}`}>
                 <span className="text-base">🛡️</span>
                 Administration
               </Link>
             )}
           </nav>
-          <div className="border-t border-gray-100 p-4 dark:border-gray-800">
-            <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-orange-700 text-sm font-black text-white">
+          <div className="border-t border-white/10 p-4">
+            <div className="flex items-center gap-3 rounded-2xl bg-white/5 p-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-amber-500 text-sm font-black text-white">
                 {user.name.slice(0, 1).toUpperCase()}
               </span>
               <div className="min-w-0 flex-1">
-                <div className="truncate text-sm font-bold">{user.name}</div>
-                <div className="truncate text-xs text-gray-400">{user.email}</div>
+                <div className="truncate text-sm font-bold text-white">{user.name}</div>
+                <div className="truncate text-xs text-gray-500">{user.email}</div>
               </div>
-              <button onClick={logout} title="Se déconnecter" className="rounded-lg p-2 text-gray-400 transition hover:bg-gray-100 hover:text-red-500 dark:hover:bg-gray-800">
+              <button onClick={logout} title="Se déconnecter" className="rounded-lg p-2 text-gray-500 transition hover:bg-white/10 hover:text-red-400">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" /></svg>
               </button>
             </div>

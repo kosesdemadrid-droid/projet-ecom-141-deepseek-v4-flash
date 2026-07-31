@@ -20,26 +20,30 @@ function Field({ label, ...props }) {
 function AuthShell({ title, sub, children, foot }) {
   return (
     <div className="grid min-h-screen lg:grid-cols-2">
-      <div className="relative hidden overflow-hidden bg-gray-900 lg:block">
+      <div className="panel-dark grain relative hidden overflow-hidden lg:block">
+        <div className="orb -top-32 left-1/4 h-96 w-96 bg-orange-600/30" />
+        <div className="orb bottom-0 right-0 h-80 w-80 bg-amber-500/20" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1400&q=80&auto=format&fit=crop"
           alt=""
-          className="absolute inset-0 h-full w-full object-cover opacity-50"
+          className="absolute inset-0 h-full w-full object-cover opacity-35"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-[#0c0a09]/70 to-transparent" />
         <div className="relative flex h-full flex-col justify-end p-12 text-white">
           <Link href="/" className="absolute left-12 top-10 flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-orange-700 text-lg shadow-lg">🛍️</span>
-            <span className="text-lg font-extrabold">LaBoutique<span className="text-orange-400">.ci</span></span>
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 text-lg shadow-glow-orange">🛍️</span>
+            <span className="text-lg font-extrabold">LaBoutique<span className="grad-text">.ci</span></span>
           </Link>
-          <h2 className="max-w-md text-3xl font-black leading-tight">La première plateforme e-commerce 100% ivoirienne.</h2>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-gray-300">
+          <h2 className="font-display max-w-md text-4xl font-semibold leading-tight">
+            La première plateforme e-commerce <span className="grad-text">100% ivoirienne</span>.
+          </h2>
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-gray-400">
             Orange Money, MTN MoMo et Wave intégrés. Livraison à Abidjan et dans tout le pays. Votre boutique en ligne en 5 minutes.
           </p>
           <div className="mt-6 flex gap-2">
-            {['Orange Money', 'MTN MoMo', 'Wave'].map((p) => (
-              <span key={p} className="rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-xs font-bold backdrop-blur">{p}</span>
+            {[['🟠', 'Orange Money'], ['🟡', 'MTN MoMo'], ['🔵', 'Wave']].map(([icon, p]) => (
+              <span key={p} className="glass flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold text-gray-200">{icon} {p}</span>
             ))}
           </div>
         </div>
@@ -100,7 +104,7 @@ function RegisterForm() {
         <Field label="Confirmation" type="password" placeholder="••••••" value={form.confirm} onChange={set('confirm')} required />
       </div>
       {err && <p className="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-600">{err}</p>}
-      <Btn type="submit" loading={busy} className="w-full bg-gray-900 py-3.5 text-white transition hover:bg-gray-800">
+      <Btn type="submit" loading={busy} className="btn-premium w-full rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 py-3.5 text-white shadow-glow-orange">
         Créer mon compte
       </Btn>
       <p className="text-center text-xs text-gray-400">En vous inscrivant, vous acceptez nos conditions d'utilisation.</p>
@@ -144,7 +148,7 @@ function LoginForm() {
         </div>
       </div>
       {err && <p className="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-600">{err}</p>}
-      <Btn type="submit" loading={busy} className="w-full bg-gray-900 py-3.5 text-white transition hover:bg-gray-800">
+      <Btn type="submit" loading={busy} className="btn-premium w-full rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 py-3.5 text-white shadow-glow-orange">
         Se connecter
       </Btn>
       <div className="rounded-xl border border-dashed border-orange-200 bg-orange-50/60 px-4 py-3 text-xs text-gray-600">
@@ -186,7 +190,7 @@ function ForgotForm() {
   return (
     <form onSubmit={submit} className="space-y-4">
       <Field label="Votre email" type="email" placeholder="vous@email.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
-      <Btn type="submit" loading={busy} className="w-full bg-gray-900 py-3.5 text-white transition hover:bg-gray-800">
+      <Btn type="submit" loading={busy} className="btn-premium w-full rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 py-3.5 text-white shadow-glow-orange">
         Envoyer le lien de réinitialisation
       </Btn>
     </form>
@@ -235,7 +239,7 @@ function ResetForm() {
       <Field label="Nouveau mot de passe" type="password" placeholder="6 caractères min." value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} required />
       <Field label="Confirmation" type="password" placeholder="••••••" value={form.confirm} onChange={(e) => setForm({ ...form, confirm: e.target.value })} required />
       {err && <p className="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-600">{err}</p>}
-      <Btn type="submit" loading={busy} className="w-full bg-gray-900 py-3.5 text-white transition hover:bg-gray-800">
+      <Btn type="submit" loading={busy} className="btn-premium w-full rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 py-3.5 text-white shadow-glow-orange">
         Réinitialiser
       </Btn>
     </form>

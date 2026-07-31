@@ -8,6 +8,8 @@
   --p3: #fbbf24;
   --soft: color-mix(in srgb, var(--p) 8%, white);
   --font: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --ink: #0c0a09;
+  --gold: #f59e0b;
 }
 
 html {
@@ -20,27 +22,110 @@ body {
   background: #fff;
 }
 
-/* Thème dynamique boutique : classes utilitaires pilotées par variables CSS */
+/* ---------- Thème dynamique boutique ---------- */
 .bg-p { background-color: var(--p); }
 .bg-p2 { background-color: var(--p2); }
 .text-p { color: var(--p); }
 .text-p2 { color: var(--p2); }
 .border-p { border-color: var(--p); }
 .bg-soft { background-color: var(--soft); }
-.text-soft { color: var(--p); }
 .hover-bright:hover { filter: brightness(0.92); }
 .hover-soft:hover { filter: brightness(0.97); }
 .grad-p { background-image: linear-gradient(135deg, var(--p), var(--p2)); }
 
 .shadow-soft { box-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.18); }
 .shadow-brand { box-shadow: 0 14px 34px -10px color-mix(in srgb, var(--p) 55%, transparent); }
+.shadow-glow-orange { box-shadow: 0 0 40px -8px rgba(249, 115, 22, 0.55); }
 
+/* ---------- Premium : typographie ---------- */
+.font-display { font-family: 'Fraunces', 'Playfair Display', Georgia, serif; }
+.font-sans-x { font-family: 'Inter', ui-sans-serif, sans-serif; }
+
+/* ---------- Premium : surfaces ---------- */
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+.glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+.panel-dark {
+  background: linear-gradient(160deg, #141210 0%, #0c0a09 60%, #0c0a09 100%);
+}
+
+.ring-hairline { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08); }
+.ring-hairline-dark { box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08); }
+
+/* Grain subtil */
+.grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Texte en dégradé */
+.grad-text {
+  background: linear-gradient(100deg, #ff9a4d 0%, #ff6a1a 35%, #fbbf24 70%, #ffd47e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.grad-text-white {
+  background: linear-gradient(100deg, #ffffff, #e7e5e4 60%, #fbbf24 120%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Ornements */
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+/* Cartes avec lueur au survol */
+.card-premium {
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s, border-color 0.4s;
+}
+.card-premium:hover {
+  transform: translateY(-6px);
+  border-color: rgba(249, 115, 22, 0.35);
+  box-shadow: 0 24px 60px -20px rgba(249, 115, 22, 0.25), 0 8px 24px -12px rgba(0, 0, 0, 0.15);
+}
+
+/* Boutons premium */
+.btn-premium {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s;
+}
+.btn-premium:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -12px rgba(249, 115, 22, 0.5); }
+.btn-premium:active { transform: translateY(0); }
+.btn-premium::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.25) 50%, transparent 60%);
+  transform: translateX(-120%);
+  transition: transform 0.7s;
+}
+.btn-premium:hover::after { transform: translateX(120%); }
+
+/* Lignes utiles */
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { scrollbar-width: none; }
-
 .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-
 input[type='range'] { accent-color: var(--p, #ea580c); }
 
 .fade-up { animation: fadeUp 0.55s ease-out both; }
@@ -60,7 +145,6 @@ input[type='range'] { accent-color: var(--p, #ea580c); }
   100% { transform: scale(1); opacity: 1; }
 }
 
-/* Skeletons de chargement */
 .shimmer::after {
   content: '';
   position: absolute;

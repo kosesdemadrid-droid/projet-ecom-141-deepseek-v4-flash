@@ -58,8 +58,8 @@ export default async function DashboardPage() {
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-5">
         {stats.map((s) => (
-          <Link key={s.label} href={s.to} className="group rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900">
-            <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br text-lg text-white ${s.color}`}>{s.icon}</div>
+          <Link key={s.label} href={s.to} className="card-premium group rounded-2xl border border-gray-100 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+            <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br text-lg text-white shadow-lg ${s.color}`}>{s.icon}</div>
             <div className="mt-3 text-xl font-black">{s.value}</div>
             <div className="text-xs font-semibold text-gray-400">{s.label}</div>
           </Link>

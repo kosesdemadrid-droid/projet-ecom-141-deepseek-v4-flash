@@ -8,3 +8,11 @@ public/uploads/*
 npm-debug.log*
 .DS_Store
 server-*.txt
+
+# Local Netlify folder
+.netlify
+
+.vercel
+
+*.json.tmp
+.netlify/

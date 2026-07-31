@@ -16,3 +16,5 @@ server-*.txt
 
 *.json.tmp
 .netlify/
+
+*.txt.tmp

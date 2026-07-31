@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Next.js : Netlify installe automatiquement le plugin de runtime
+# (routes API servies en fonctions serverless, base persistée via Netlify Blobs)

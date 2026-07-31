@@ -3,6 +3,12 @@ import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
 
 export async function POST(req) {
+  if (process.env.NETLIFY) {
+    return NextResponse.json(
+      { error: "L'import de fichiers n'est pas disponible sur Netlify (système de fichiers en lecture seule). Utilisez une image Unsplash ou un lien URL." },
+      { status: 400 }
+    );
+  }
   const form = await req.formData().catch(() => null);
   const file = form?.get('file');
   if (!file || !file.size) return NextResponse.json({ error: 'Aucun fichier.' }, { status: 400 });

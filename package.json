@@ -1,0 +1,24 @@
+{
+  "name": "laboutique-ci",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LaBoutique.ci — Plateforme SaaS e-commerce multi-tenant pour le marché ivoirien",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "seed": "node scripts/seed.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "lucide-react": "^0.454.0",
+    "next": "^14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.10"
+  }
+}

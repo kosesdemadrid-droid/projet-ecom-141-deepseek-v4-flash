@@ -4,6 +4,15 @@ import { hashPassword, createSession, publicUser } from '@/lib/auth';
 import { sendMail, mailTemplates } from '@/lib/mail';
 
 export async function POST(req) {
+  try {
+    return await handle(req);
+  } catch (e) {
+    console.error('[register] ERREUR:', e);
+    return NextResponse.json({ error: 'Une erreur est survenue lors de l\'inscription. Réessayez.' }, { status: 500 });
+  }
+}
+
+async function handle(req) {
   const { name, email, password, phone } = await req.json().catch(() => ({}));
   if (!name || !email || !password || password.length < 6) {
     return NextResponse.json({ error: 'Nom, email et mot de passe (6 caractères min.) sont requis.' }, { status: 400 });
@@ -23,7 +32,7 @@ export async function POST(req) {
   };
   data.users.push(user);
   await save(data);
-  await createSession(user.id);
+  await createSession(user.id, data);
   sendMail({ to: user.email, ...mailTemplates.welcome(user.name) });
   return NextResponse.json({ user: publicUser(user) });
 }
